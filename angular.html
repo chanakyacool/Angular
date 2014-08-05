@@ -1,21 +1,23 @@
-  <!doctype html>
-  <html ng-app="store">
-    <head>
+<!doctype html>
+<html ng-app="store">
+   <head>
       <title>store</title>
-      <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">  
-    </head>
-    <body ng-controller="StoreController as store">
-    <!-- <div ng-hide="store.product.soldOut"> -->
-    <div class="col-lg-12">
-    <div class="col-lg-4" ng-repeat="product in store.products">
-      <h1>{{product.name}}</h1>
-       <em class="pull-right">{{product.price | currency}}</em>
-      <p> {{product.description}}</p>
-      <img ng-src="{{product.images[0].thumb}}"/>
-      <button ng-show="product.canPurchase"> Add to Cart </button>
+      <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+   </head>
+   <body ng-controller="StoreController as store">
+      <!-- <div ng-hide="store.product.soldOut"> -->
+      <div class="col-lg-12">
+         <div class="col-lg-4" ng-repeat="product in store.products">
+            <h1>{{product.name}}</h1>
+            <em class="pull-right">{{product.price | currency}}</em>
+            <p> {{product.description}}</p>
+            <li class="thumbnail" ng-repeat="image in product.images">
+               <img ng-src="{{image}}"/>
+            </li>
+            <button ng-show="product.canPurchase"> Add to Cart </button>
+         </div>
       </div>
-    </div>
       <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
       <script type="text/javascript" src="app.js"></script>
-    </body>
-  </html>
+   </body>
+</html>
